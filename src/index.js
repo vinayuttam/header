@@ -98,6 +98,7 @@ class Header {
 
     newData.text = data.text || '';
     newData.level = parseInt(data.level) || this.defaultLevel.number;
+    newData.code = data.code || {};
 
     return newData;
   }
@@ -178,6 +179,7 @@ class Header {
     this.data = {
       level: level,
       text: this.data.text,
+      code: this.data.code,
     };
 
     /**
@@ -227,6 +229,7 @@ class Header {
     return {
       text: toolsContent.innerHTML,
       level: this.currentLevel.number,
+      code: this._data.code,
     };
   }
 
@@ -259,6 +262,7 @@ class Header {
   get data() {
     this._data.text = this._element.innerHTML;
     this._data.level = this.currentLevel.number;
+    this._data.code = this._data.code || {};
 
     return this._data;
   }
@@ -338,7 +342,7 @@ class Header {
     /**
      * Make tag editable
      */
-    tag.contentEditable = 'true';
+    tag.contentEditable = 'false';
 
     /**
      * Add Placeholder
